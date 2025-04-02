@@ -13,10 +13,7 @@ struct books {
 
 int main(void) {
     struct books* head = NULL;
-    //MAC OS->
-    //FILE* in = fopen("/Users/taraskabacok/Documents/oplabs/10_xcode/10.1/in.txt", "r");
-    //LINUX ->
-    FILE* in = fopen("in.txt", "r");
+    FILE* in = fopen("../data/in.txt", "r");
     char author[50], book_name[50];
     int year, pages;
     double price;
@@ -103,10 +100,7 @@ int main(void) {
         printf("\"%s\" \"%s\" \"%d\" \"%d\" \"%.2lf\"\n", current->author, current->book_name, current->year, current->pages, current->price);
         current = current->next;
     }
-    //MAC OS->
-    //FILE* out = fopen("/Users/taraskabacok/Documents/oplabs/10_xcode/10.1/out.txt", "w");
-    //LINUX
-    FILE* out = fopen("out.txt", "w");
+    FILE* out = fopen("../data/out.txt", "w");
     current = head;
     while (current != NULL) {
         fprintf(out, "\"%s\" \"%s\" \"%d\" \"%d\" \"%.2lf\"\n", current->author, current->book_name, current->year, current->pages, current->price);
