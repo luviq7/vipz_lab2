@@ -1,26 +1,45 @@
 #pragma once
 #include <string>
 
-// структура для зберігання інформації про книгу
+// Структура для зберігання інформації про книгу.
+// Включає автора та назву книги, а також рік видання, кількість сторінок і ціну.
+// Приклад створення об'єкта та використання:
+//
+// Book myBook;
+// myBook.bookAuthorTitle.m_strBookAuthor = "Автор книги";
+// myBook.bookAuthorTitle.m_strBookTitle = "Назва книги";
+// myBook.bookYearPagesPrice.m_iBookYear = 2025;
+// myBook.bookYearPagesPrice.m_iBookPages = 200;
+// myBook.bookYearPagesPrice.m_dBookPrice = 250.0;
+//
+// В результаті об'єкт myBook міститиме інформацію про книгу.
 struct Book {
-    // структура для зберігання автора та назви книги
+    // Структура для зберігання автора та назви книги.
+    // Містить поля для збереження імені автора та назви книги.
     struct AuthorTitle {
-        std::string m_strBookAuthor;  // автор книги
-        std::string m_strBookTitle;   // назва книги
+        std::string m_strBookAuthor;  // Автор книги
+        std::string m_strBookTitle;   // Назва книги
     } bookAuthorTitle;
 
-    // структура для зберігання року видання, кількості сторінок і ціни книги
+    // Структура для зберігання року видання, кількості сторінок і ціни книги.
+    // Містить поля для зберігання року видання, кількості сторінок і ціни книги.
     struct YearPagesPrice {
-        int m_iBookYear;    // рік видання книги
-        int m_iBookPages;   // кількість сторінок
-        double m_dBookPrice; // ціна книги
+        int m_iBookYear;    // Рік видання книги
+        int m_iBookPages;   // Кількість сторінок у книзі
+        double m_dBookPrice; // Ціна книги
     } bookYearPagesPrice;
 };
 
-// структура для елемента списку книжок
+// Структура для елемента списку книжок.
+// Кожен елемент містить книгу та вказівник на наступний елемент списку.
+// Приклад використання:
+// BookNode* head = new BookNode;  // Створюємо новий елемент списку
+// head->m_sBook.bookAuthorTitle.m_strBookAuthor = "Автор 1";
+// head->m_sBook.bookAuthorTitle.m_strBookTitle = "Книга 1";
+// head->m_pNext = nullptr;  // Ініціалізуємо наступний елемент як nullptr
 struct BookNode {
-    Book m_sBook;       // книга
-    BookNode* m_pNext; // вказівник на наступний елемент списку
+    Book m_sBook;       // Книга
+    BookNode* m_pNext; // Вказівник на наступний елемент списку
 };
 
 // функція для зчитування даних з файлу та додавання книг до списку
